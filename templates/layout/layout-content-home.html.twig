@@ -1,0 +1,858 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomePageController!{% endblock %}
+
+{% block body %}
+    <!-- ================ Banner Section start Here =============== -->
+    <section class="banner-section style2 bgimg" style="background-image: url(assets/images/banner/bg2.jpg);">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="row align-items-end">
+                    <div class="col-lg-6">
+                        <div class="banner-content">
+                            <div class="intro-form">
+                                <h2>Meet <span class="theme-color">big</span> And <span class="theme-color">Cute</span> Love Here.</h2>
+                                <ul>
+                                    <li><i class="icofont-heart-alt"></i>Friendly, efficient and simple</li>
+                                    <li><i class="icofont-heart-alt"></i>Consist on that we offer a site which is friendly</li>
+                                    <li><i class="icofont-heart-alt"></i>Find friends among a group of guys and girls</li>
+                                    <li><i class="icofont-heart-alt"></i>You can find love</li>
+                                    <li><i class="icofont-heart-alt"></i>Absolutely free</li>
+                                </ul>
+                                <a href="#" class="lab-btn"><span>Registration Now</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="banner-thumb">
+                            <img src="assets/images/banner/01.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ Banner Section end Here =============== -->
+
+
+    <!-- ================> About section start here <================== -->
+	<div class="about about--style3 padding-top pt-xl-0">
+		<div class="container">
+			<div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
+				<form action="#">
+					<div class="banner__list">
+						<div class="row align-items-center row-cols-xl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1">
+							<div class="col-6">
+								<label>I am a</label>
+								<div class="banner__inputlist">
+									<select>
+										<option>Select Gender</option>
+										<option value="male" selected>Male</option>
+										<option value="female">Female</option>
+										<option value="others">Others</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-6">
+								<label>Looking for</label>
+								<div class="banner__inputlist">
+									<select>
+										<option>Select Gender</option>
+										<option value="male">Male</option>
+										<option value="female" selected>Female</option>
+										<option value="others">Others</option>
+									</select>
+								</div>
+							</div>
+							<div class="col">
+								<label>Age</label>
+								<div class="row">
+									<div class="col-6">
+										<div class="banner__inputlist">
+											<select>
+												<option value="18" selected>18</option>
+												<option value="19">19</option>
+												<option value="20">20</option>
+												<option value="21">21</option>
+												<option value="22">22</option>
+												<option value="23">23</option>
+												<option value="24">24</option>
+												<option value="25">25</option>
+												<option value="26">26</option>
+												<option value="27">27</option>
+												<option value="28">28</option>
+												<option value="29">29</option>
+												<option value="30">30</option>
+												<option value="31">31</option>
+												<option value="32">32</option>
+												<option value="33">33</option>
+												<option value="34">34</option>
+												<option value="35">35</option>
+												<option value="36">36</option>
+												<option value="37">37</option>
+												<option value="38">38</option>
+												<option value="39">39</option>
+												<option value="40">40</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="banner__inputlist">
+											<select>
+												<option value="18">18</option>
+												<option value="19">19</option>
+												<option value="20">20</option>
+												<option value="21">21</option>
+												<option value="22">22</option>
+												<option value="23">23</option>
+												<option value="24">24</option>
+												<option value="25" selected>25</option>
+												<option value="26">26</option>
+												<option value="27">27</option>
+												<option value="28">28</option>
+												<option value="29">29</option>
+												<option value="30">30</option>
+												<option value="31">31</option>
+												<option value="32">32</option>
+												<option value="33">33</option>
+												<option value="34">34</option>
+												<option value="35">35</option>
+												<option value="36">36</option>
+												<option value="37">37</option>
+												<option value="38">38</option>
+												<option value="39">39</option>
+												<option value="40">40</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<label>Country</label>
+								<div class="banner__inputlist">
+									<select id="country" name="country">
+										<option value="Afganistan">Afghanistan</option>
+										<option value="Albania">Albania</option>
+										<option value="Algeria">Algeria</option>
+										<option value="American Samoa">American Samoa</option>
+										<option value="Andorra">Andorra</option>
+										<option value="Angola">Angola</option>
+										<option value="Anguilla">Anguilla</option>
+										<option value="Antigua & Barbuda">Antigua & Barbuda</option>
+										<option value="Argentina">Argentina</option>
+										<option value="Armenia">Armenia</option>
+										<option value="Aruba">Aruba</option>
+										<option value="Australia">Australia</option>
+										<option value="Austria">Austria</option>
+										<option value="Azerbaijan">Azerbaijan</option>
+										<option value="Bahamas">Bahamas</option>
+										<option value="Bahrain">Bahrain</option>
+										<option value="Bangladesh" selected>Bangladesh</option>
+										<option value="Barbados">Barbados</option>
+										<option value="Belarus">Belarus</option>
+										<option value="Belgium">Belgium</option>
+										<option value="Belize">Belize</option>
+										<option value="Benin">Benin</option>
+										<option value="Bermuda">Bermuda</option>
+										<option value="Bhutan">Bhutan</option>
+										<option value="Bolivia">Bolivia</option>
+										<option value="Bonaire">Bonaire</option>
+										<option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+										<option value="Botswana">Botswana</option>
+										<option value="Brazil">Brazil</option>
+										<option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+										<option value="Brunei">Brunei</option>
+										<option value="Bulgaria">Bulgaria</option>
+										<option value="Burkina Faso">Burkina Faso</option>
+										<option value="Burundi">Burundi</option>
+										<option value="Cambodia">Cambodia</option>
+										<option value="Cameroon">Cameroon</option>
+										<option value="Canada">Canada</option>
+										<option value="Canary Islands">Canary Islands</option>
+										<option value="Cape Verde">Cape Verde</option>
+										<option value="Cayman Islands">Cayman Islands</option>
+										<option value="Central African Republic">Central African Republic</option>
+										<option value="Chad">Chad</option>
+										<option value="Channel Islands">Channel Islands</option>
+										<option value="Chile">Chile</option>
+										<option value="China">China</option>
+										<option value="Christmas Island">Christmas Island</option>
+										<option value="Cocos Island">Cocos Island</option>
+										<option value="Colombia">Colombia</option>
+										<option value="Comoros">Comoros</option>
+										<option value="Congo">Congo</option>
+										<option value="Cook Islands">Cook Islands</option>
+										<option value="Costa Rica">Costa Rica</option>
+										<option value="Cote DIvoire">Cote DIvoire</option>
+										<option value="Croatia">Croatia</option>
+										<option value="Cuba">Cuba</option>
+										<option value="Curaco">Curacao</option>
+										<option value="Cyprus">Cyprus</option>
+										<option value="Czech Republic">Czech Republic</option>
+										<option value="Denmark">Denmark</option>
+										<option value="Djibouti">Djibouti</option>
+										<option value="Dominica">Dominica</option>
+										<option value="Dominican Republic">Dominican Republic</option>
+										<option value="East Timor">East Timor</option>
+										<option value="Ecuador">Ecuador</option>
+										<option value="Egypt">Egypt</option>
+										<option value="El Salvador">El Salvador</option>
+										<option value="Equatorial Guinea">Equatorial Guinea</option>
+										<option value="Eritrea">Eritrea</option>
+										<option value="Estonia">Estonia</option>
+										<option value="Ethiopia">Ethiopia</option>
+										<option value="Falkland Islands">Falkland Islands</option>
+										<option value="Faroe Islands">Faroe Islands</option>
+										<option value="Fiji">Fiji</option>
+										<option value="Finland">Finland</option>
+										<option value="France">France</option>
+										<option value="French Guiana">French Guiana</option>
+										<option value="French Polynesia">French Polynesia</option>
+										<option value="French Southern Ter">French Southern Ter</option>
+										<option value="Gabon">Gabon</option>
+										<option value="Gambia">Gambia</option>
+										<option value="Georgia">Georgia</option>
+										<option value="Germany">Germany</option>
+										<option value="Ghana">Ghana</option>
+										<option value="Gibraltar">Gibraltar</option>
+										<option value="Great Britain">Great Britain</option>
+										<option value="Greece">Greece</option>
+										<option value="Greenland">Greenland</option>
+										<option value="Grenada">Grenada</option>
+										<option value="Guadeloupe">Guadeloupe</option>
+										<option value="Guam">Guam</option>
+										<option value="Guatemala">Guatemala</option>
+										<option value="Guinea">Guinea</option>
+										<option value="Guyana">Guyana</option>
+										<option value="Haiti">Haiti</option>
+										<option value="Hawaii">Hawaii</option>
+										<option value="Honduras">Honduras</option>
+										<option value="Hong Kong">Hong Kong</option>
+										<option value="Hungary">Hungary</option>
+										<option value="Iceland">Iceland</option>
+										<option value="Indonesia">Indonesia</option>
+										<option value="India">India</option>
+										<option value="Iran">Iran</option>
+										<option value="Iraq">Iraq</option>
+										<option value="Ireland">Ireland</option>
+										<option value="Isle of Man">Isle of Man</option>
+										<option value="Israel">Israel</option>
+										<option value="Italy">Italy</option>
+										<option value="Jamaica">Jamaica</option>
+										<option value="Japan">Japan</option>
+										<option value="Jordan">Jordan</option>
+										<option value="Kazakhstan">Kazakhstan</option>
+										<option value="Kenya">Kenya</option>
+										<option value="Kiribati">Kiribati</option>
+										<option value="Korea North">Korea North</option>
+										<option value="Korea Sout">Korea South</option>
+										<option value="Kuwait">Kuwait</option>
+										<option value="Kyrgyzstan">Kyrgyzstan</option>
+										<option value="Laos">Laos</option>
+										<option value="Latvia">Latvia</option>
+										<option value="Lebanon">Lebanon</option>
+										<option value="Lesotho">Lesotho</option>
+										<option value="Liberia">Liberia</option>
+										<option value="Libya">Libya</option>
+										<option value="Liechtenstein">Liechtenstein</option>
+										<option value="Lithuania">Lithuania</option>
+										<option value="Luxembourg">Luxembourg</option>
+										<option value="Macau">Macau</option>
+										<option value="Macedonia">Macedonia</option>
+										<option value="Madagascar">Madagascar</option>
+										<option value="Malaysia">Malaysia</option>
+										<option value="Malawi">Malawi</option>
+										<option value="Maldives">Maldives</option>
+										<option value="Mali">Mali</option>
+										<option value="Malta">Malta</option>
+										<option value="Marshall Islands">Marshall Islands</option>
+										<option value="Martinique">Martinique</option>
+										<option value="Mauritania">Mauritania</option>
+										<option value="Mauritius">Mauritius</option>
+										<option value="Mayotte">Mayotte</option>
+										<option value="Mexico">Mexico</option>
+										<option value="Midway Islands">Midway Islands</option>
+										<option value="Moldova">Moldova</option>
+										<option value="Monaco">Monaco</option>
+										<option value="Mongolia">Mongolia</option>
+										<option value="Montserrat">Montserrat</option>
+										<option value="Morocco">Morocco</option>
+										<option value="Mozambique">Mozambique</option>
+										<option value="Myanmar">Myanmar</option>
+										<option value="Nambia">Nambia</option>
+										<option value="Nauru">Nauru</option>
+										<option value="Nepal">Nepal</option>
+										<option value="Netherland Antilles">Netherland Antilles</option>
+										<option value="Netherlands">Netherlands (Holland, Europe)</option>
+										<option value="Nevis">Nevis</option>
+										<option value="New Caledonia">New Caledonia</option>
+										<option value="New Zealand">New Zealand</option>
+										<option value="Nicaragua">Nicaragua</option>
+										<option value="Niger">Niger</option>
+										<option value="Nigeria">Nigeria</option>
+										<option value="Niue">Niue</option>
+										<option value="Norfolk Island">Norfolk Island</option>
+										<option value="Norway">Norway</option>
+										<option value="Oman">Oman</option>
+										<option value="Pakistan">Pakistan</option>
+										<option value="Palau Island">Palau Island</option>
+										<option value="Palestine">Palestine</option>
+										<option value="Panama">Panama</option>
+										<option value="Papua New Guinea">Papua New Guinea</option>
+										<option value="Paraguay">Paraguay</option>
+										<option value="Peru">Peru</option>
+										<option value="Phillipines">Philippines</option>
+										<option value="Pitcairn Island">Pitcairn Island</option>
+										<option value="Poland">Poland</option>
+										<option value="Portugal">Portugal</option>
+										<option value="Puerto Rico">Puerto Rico</option>
+										<option value="Qatar">Qatar</option>
+										<option value="Republic of Montenegro">Republic of Montenegro</option>
+										<option value="Republic of Serbia">Republic of Serbia</option>
+										<option value="Reunion">Reunion</option>
+										<option value="Romania">Romania</option>
+										<option value="Russia">Russia</option>
+										<option value="Rwanda">Rwanda</option>
+										<option value="St Barthelemy">St Barthelemy</option>
+										<option value="St Eustatius">St Eustatius</option>
+										<option value="St Helena">St Helena</option>
+										<option value="St Kitts-Nevis">St Kitts-Nevis</option>
+										<option value="St Lucia">St Lucia</option>
+										<option value="St Maarten">St Maarten</option>
+										<option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+										<option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+										<option value="Saipan">Saipan</option>
+										<option value="Samoa">Samoa</option>
+										<option value="Samoa American">Samoa American</option>
+										<option value="San Marino">San Marino</option>
+										<option value="Sao Tome & Principe">Sao Tome & Principe</option>
+										<option value="Saudi Arabia">Saudi Arabia</option>
+										<option value="Senegal">Senegal</option>
+										<option value="Seychelles">Seychelles</option>
+										<option value="Sierra Leone">Sierra Leone</option>
+										<option value="Singapore">Singapore</option>
+										<option value="Slovakia">Slovakia</option>
+										<option value="Slovenia">Slovenia</option>
+										<option value="Solomon Islands">Solomon Islands</option>
+										<option value="Somalia">Somalia</option>
+										<option value="South Africa">South Africa</option>
+										<option value="Spain">Spain</option>
+										<option value="Sri Lanka">Sri Lanka</option>
+										<option value="Sudan">Sudan</option>
+										<option value="Suriname">Suriname</option>
+										<option value="Swaziland">Swaziland</option>
+										<option value="Sweden">Sweden</option>
+										<option value="Switzerland">Switzerland</option>
+										<option value="Syria">Syria</option>
+										<option value="Tahiti">Tahiti</option>
+										<option value="Taiwan">Taiwan</option>
+										<option value="Tajikistan">Tajikistan</option>
+										<option value="Tanzania">Tanzania</option>
+										<option value="Thailand">Thailand</option>
+										<option value="Togo">Togo</option>
+										<option value="Tokelau">Tokelau</option>
+										<option value="Tonga">Tonga</option>
+										<option value="Trinidad & Tobago">Trinidad & Tobago</option>
+										<option value="Tunisia">Tunisia</option>
+										<option value="Turkey">Turkey</option>
+										<option value="Turkmenistan">Turkmenistan</option>
+										<option value="Turks & Caicos Is">Turks & Caicos Is</option>
+										<option value="Tuvalu">Tuvalu</option>
+										<option value="Uganda">Uganda</option>
+										<option value="United Kingdom">United Kingdom</option>
+										<option value="Ukraine">Ukraine</option>
+										<option value="United Arab Erimates">United Arab Emirates</option>
+										<option value="United States of America">United States of America</option>
+										<option value="Uraguay">Uruguay</option>
+										<option value="Uzbekistan">Uzbekistan</option>
+										<option value="Vanuatu">Vanuatu</option>
+										<option value="Vatican City State">Vatican City State</option>
+										<option value="Venezuela">Venezuela</option>
+										<option value="Vietnam">Vietnam</option>
+										<option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+										<option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+										<option value="Wake Island">Wake Island</option>
+										<option value="Wallis & Futana Is">Wallis & Futana Is</option>
+										<option value="Yemen">Yemen</option>
+										<option value="Zaire">Zaire</option>
+										<option value="Zambia">Zambia</option>
+										<option value="Zimbabwe">Zimbabwe</option>
+                                    </select>
+								</div>
+							</div>
+							<div class="col">
+								<button type="submit" class="lab-btn d-block"><span>Find Your Partner</span></button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <!-- ================> About section end here <================== -->
+
+
+    <!-- ================> About section start here <================== -->
+	<div class="about padding-tb">
+		<div class="container">
+			<div class="section-header wow fadeInUp" data-wow-duration="1.5s">
+				<h2>How Does It Work?</h2>
+				<p>get started on pyaar.com today in 3 simple steps</p>
+			</div>
+			<div class="section__wrapper">
+				<div class="row g-4 justify-content-center row-cols-lg-3 row-cols-sm-2 row-cols-1">
+					<div class="col wow fadeInUp" data-wow-duration="1.5s">
+						<div class="about__item text-center">
+							<div class="about__inner">
+								<div class="about__thumb">
+									<img src="assets/images/about/01.jpg" alt="dating thumb">
+								</div>
+								<div class="about__content">
+									<h4>Create A Profile</h4>
+									<p>Create a personalised profile, add photos and describe your ideal partner</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col wow fadeInUp" data-wow-duration="1.5s">
+						<div class="about__item text-center">
+							<div class="about__inner">
+								<div class="about__thumb">
+									<img src="assets/images/about/02.jpg" alt="dating thumb">
+								</div>
+								<div class="about__content">
+									<h4>Browse Photos</h4>
+									<p>Find members based on location, very special interests and lifestyle preferences.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col wow fadeInUp" data-wow-duration="1.5.5s">
+						<div class="about__item text-center">
+							<div class="about__inner">
+								<div class="about__thumb">
+									<img src="assets/images/about/03.jpg" alt="dating thumb">
+								</div>
+								<div class="about__content">
+									<h4>Start Communicating</h4>
+									<p>Show interest in the members you like and let the journey begin.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- ================> About section end here <================== -->
+
+
+    <!-- ================ Success Story Section start Here =============== -->
+    <section class="story-section padding-tb bgimg" style="background-image: url(assets/images/bg-img/04.jpg);">
+        <div class=" container">
+            <div class="section-header">
+                <h2>Read Our Success Stories</h2>
+                <p>Listen and learn from our community members and find out tips and tricks to meet your love. Join us and be part of a bigger family.</p>
+            </div>
+            <div class="section-wrapper">
+                <div class="row justify-content-center g-4 row-cols-xl-3 row-cols-sm-2 row-cols-1">
+                    <div class="col">
+                        <div class="story-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="blog-single.html"><img src="assets/images/story/01.jpg" alt="img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <a href="blog-single.html"><h4>Dream places and locations to visit in 2022</h4></a>
+                                    <div class="lab-content-author">
+                                        <div class="left">
+                                            <img src="assets/images/story/author/01.png" alt="blog-thumb">
+                                        </div>
+                                        <div class="right">
+                                            <a href="#">Umme Nishat</a>
+                                            <span>April 08, 2022</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="story-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="blog-single.html"><img src="assets/images/story/02.jpg" alt="img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <a href="blog-single.html"><h4>Make your dreams come true and monetise quickly</h4></a>
+                                    <div class="lab-content-author">
+                                        <div class="left">
+                                            <img src="assets/images/story/author/02.png" alt="blog-thumb">
+                                        </div>
+                                        <div class="right">
+                                            <a href="#">Rajib Raj</a>
+                                            <span>April 08, 2022</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="story-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="blog-single.html"><img src="assets/images/story/03.jpg" alt="img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <a href="blog-single.html"><h4>Love looks not with the eyes, but with the mind.</h4></a>
+                                    <div class="lab-content-author">
+                                        <div class="left">
+                                            <img src="assets/images/story/author/03.png" alt="blog-thumb">
+                                        </div>
+                                        <div class="right">
+                                            <a href="#">Radika Roy</a>
+                                            <span>April 08, 2022</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ Success Story Section end Here =============== -->
+
+
+    <!-- ================ Top Member Section start Here =============== -->
+    <section class="top-member-section padding-tb">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our New Lovely Members</h2>
+                <p>Learn from them and try to make it to this board. This will for sure boost you visibility and increase your chances to find you loved one.</p>
+            </div>
+            <div class="section-wrapper">
+                <ul class="button-group filters-button-group w-100 d-flex flex-wrap justify-content-center">
+                    <li class="button is-checked filter-btn" data-filter="*">Show all</li>
+                    <li class="button filter-btn" data-filter=".boy">Male</li>
+                    <li class="button filter-btn" data-filter=".girl">Female</li>
+                </ul>
+
+                <div class="grid-memberlist">
+                    <div class="grid-member filter-item boy">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/01.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Johanna</a> </h6>
+                                    <p>29. Male</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item boy">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/03.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Selinae<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>28. Male</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item girl">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/02.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Andrea Guido<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>24. Female</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item girl">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/04.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Rocky deo<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>25. Female</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item boy">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/05.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Jhon doe<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>24. Male</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item boy">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/06.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Angelina<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>25. Male</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item girl">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/07.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Andrea Guido<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>21. Female</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item girl">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/08.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Jene Aiko<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>28. Male</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item boy">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/09.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Anna haek<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>23. Female</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-member filter-item girl">
+                        <div class="lab-item member-item style-1">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="profile.html"><img src="assets/images/member/10.jpg" alt="member-img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <h6><a href="profile.html">Andrean Puido<i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <p>25. Female</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-button-group d-flex flex-wrap justify-content-center">
+                    <a href="members.html" class="lab-btn"><span>Discover All Members</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ Top Member Section end Here =============== -->
+
+
+    <!-- ================ Active Group Section Start Here =============== -->
+    <section class="group-section style2 padding-tb bgimg" style="background-image: url(assets/images/bg-img/05.jpg);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Be Part of Real Group</h2>
+                <p>Listen and learn from our community members and find out tips and tricks to meet your love. Join us and be part of a bigger family.</p>
+            </div>
+            <div class="section-wrapper">
+                <div class="row g-4 row-cols-sm-2 row-cols-1">
+                    <div class="col">
+                        <div class="group-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="group-single.html"><img src="assets/images/group/01.jpg" alt="img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <a href="group-single.html"><h4>A Dating Story</h4></a>
+                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
+                                    <ul class="lab-content-icon">
+                                        <li>
+                                            <i class="icofont-globe"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <span class="tooltip-label">Public</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="icofont-users-alt-3"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="group-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="group-single.html"><img src="assets/images/group/02.jpg" alt="img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <a href="group-single.html"><h4>A Single Rose</h4></a>
+                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
+                                    <ul class="lab-content-icon">
+                                        <li>
+                                            <i class="icofont-globe"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <span class="tooltip-label">Public</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="icofont-users-alt-3"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="group-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="group-single.html"><img src="assets/images/group/03.jpg" alt="img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <a href="group-single.html"><h4>Beautiful Distraction</h4></a>
+                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
+                                    <ul class="lab-content-icon">
+                                        <li>
+                                            <i class="icofont-globe"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <span class="tooltip-label">Public</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="icofont-users-alt-3"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="group-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <a href="group-single.html"><img src="assets/images/group/04.jpg" alt="img"></a>
+                                </div>
+                                <div class="lab-content">
+                                    <a href="group-single.html"><h4>Because You Love Me</h4></a>
+                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
+                                    <ul class="lab-content-icon">
+                                        <li>
+                                            <i class="icofont-globe"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <span class="tooltip-label">Public</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="icofont-users-alt-3"></i>
+                                            <div class="time-tooltip">
+                                                <div class="time-tooltip-holder">
+                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-center mt-5">
+                    <a href="active-group.html" class="lab-btn"><span>Discover All Groups</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ Active Group Section end Here =============== -->
+
+
+    <!-- ================> App section start here <================== -->
+	<div class="app app--style2 padding-tb">
+		<div class="container">
+			<div class="row g-4 justify-content-center">
+				<div class="col-12">
+					<div class="app__item wow fadeInUp" data-wow-duration="1.5s">
+						<div class="app__inner">
+                            <div class="section-header mb-4">
+                                <h2>Download Our PyaarPro Apps</h2>
+								<p>You find us, finally and you are already in love. More than 5.000.000 around world already shared the same experience andng ares uses our system Joining!</p>
+                            </div>
+							<div class="app__content text-center">
+                                <ul class="d-flex flex-wrap mb-4">
+                                    
+                                    <li class="counter-text border-count">
+                                        <h3 class="counter__number odometer mb-0" data-odometer-final="12345689">0</h3>
+                                    </li>
+                                </ul>
+								<ul class="justify-content-center">
+									<li><a href="#"><img src="assets/images/app/01.jpg" alt="dating thumb"></a></li>
+									<li><a href="#"><img src="assets/images/app/02.jpg" alt="dating thumb"></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- ================> App section end here <================== -->
+{% endblock %}

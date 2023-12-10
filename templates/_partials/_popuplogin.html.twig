@@ -1,0 +1,40 @@
+{% block popupregister %}
+    <div class="popuplogin">
+        <div class="container">
+            <div class="popup__area bgimg" style="background-image: url(assets/images/bg3.jpg);">
+                <div class="popup__close">
+                    <i class="icofont-close"></i>
+                </div>
+                <div class="row g-4 align-items-center">
+                    <div class="col-xl-6">
+                        <div class="popup__fild">
+                            <h2 class="mb-4">Members Login</h2>
+                            <form class="banner-form">
+                                <div class="age">
+                                    <div class="right w-100">
+                                        <input type="email" placeholder="Enter yor email">
+                                        <input type="password" placeholder="******">
+                                        <p class="text-end mb-0"><a href="forgetpassword.html" class="theme-color">forget password</a></p>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">Keep me logged in</label>
+                                        <p>Don't check this box if you're at a public shared computer</p>
+                                    </div>
+                                </div>
+
+                                <button class="" type="submit">Login to my account</button>
+                                <h6>Not a member? <a href="signup.html">Join Free Now</a></h6>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="popup__thumb">
+                            <img src="assets/images/popup/02.png" alt="popup">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
