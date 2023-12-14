@@ -7,14 +7,20 @@ use App\Form\ProfileType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProfileController extends AbstractController
 {
     #[Route('/customer/profile/new', name: 'customer_profile_new')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $profile = new Profile();
-        $form = $this->createForm(ProfileType::class, $profile, );
+        $form = $this->createForm(ProfileType::class, $profile);
+        $form->handleRequest($request);
+
+        if ( $form->isSubmitted() && $form->isValid() ) {
+            $profile->setUser($this->getUser());
+        }
         
         return $this->render('customer/profile.html.twig', [
             'form' => $form->createView(),

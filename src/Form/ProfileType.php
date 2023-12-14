@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProfileType extends AbstractType
@@ -115,10 +116,21 @@ class ProfileType extends AbstractType
             ->add('AboutMe', TextareaType::class, [
                 'label' => 'About Me', 
                 'required' => false,
+                'attr' => [
+                    'placeholder' => $this->translator->trans('A propos de vous'),
+                ]
             ])
             ->add('LookFor', TextareaType::class, [
                 'label' => 'About Me', 
                 'required' => false,
+                'attr' => [
+                    'placeholder' => $this->translator->trans('votre recherche'),
+                ]
+            ])
+            ->add('submit', SubmitType::class, [
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Valider'),
+                ]
             ])
         ;
     }
