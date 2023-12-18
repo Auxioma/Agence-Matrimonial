@@ -19,6 +19,13 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
 
         if ( $form->isSubmitted() && $form->isValid() ) {
+            dd($request->get('files'));
+            try {
+
+            } catch (\Exception $e) {
+                $this->addFlash('danger', '....');
+            }
+            
             $profile->setUser($this->getUser());
         }
         
