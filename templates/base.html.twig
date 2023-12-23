@@ -17,7 +17,7 @@
     </head>
     <body>
 
-        {% include "_partials/_header.html.twig" %}
+        {{render(controller('App\\Controller\\Menu\\MenuController::mainMenu'))}}
         
         {% block body %}{% endblock %}
 

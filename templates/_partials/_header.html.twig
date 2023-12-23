@@ -46,20 +46,14 @@
                     </div>
                     <div class="menu-area">
                         <ul class="menu">
+
+                            {% for category in categories %}
+                            
                             <li>
-                                <a href="#0" class="active">{% trans %}Accueil{% endtrans %}</a>
+                                <a href="{{ path(category.Slug) }}" class="active">{{ category.Name }}</a>
                             </li>
 
-                            <li>
-                                <a href="#0">{% trans %}Notre histoire{% endtrans %}</a>
-                            </li>
-                            <li>
-                                <a href="community.html">{% trans %}Nos adhérantes{% endtrans %}</a>
-                            </li>
-                            <li>
-                                <a href="#0">Blog</a>
-                            </li>
-                            <li><a href="contact.html">{% trans %}Contact{% endtrans %}</a></li>
+                            {% endfor %}
                         </ul>
                         <a href="#0" class="login"><i class="icofont-user"></i> <span>{% trans %}Connection{% endtrans %}</span> </a>
                         <a href="#" class="signup"><i class="icofont-users"></i> <span>{% trans %}S'enregistré{% endtrans %}</span> </a>

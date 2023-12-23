@@ -11,6 +11,6 @@ class ProfilesController extends AbstractController
     #[Route('/adherante', name: 'app_profiles_list')]
     public function ViewListProfile(): Response
     {
-        return $this->render('pages/profiles/list-profiles.html.twig');
+        return $this->render('pages/list-profiles.html.twig'); 
     }
 }
