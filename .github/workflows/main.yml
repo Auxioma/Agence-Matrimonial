@@ -19,5 +19,5 @@ jobs:
           
       - name: deploy
         run: 
-            sshpass -e ssh -o -p 5022 stricthostkeychecking=no ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
+          sshpass -e ssh -o StrictHostKeyChecking=no -p 5022 ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
             "cd public_html/ && git pull && php composer.phar install && php bin/console d:m:m -n"
