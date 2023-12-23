@@ -56,6 +56,18 @@ class Profile
     #[ORM\OneToOne(inversedBy: 'profile', cascade: ['persist', 'remove'])]
     private ?User $User = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Hair = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Eyes = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Education = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Children = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -225,6 +237,54 @@ class Profile
     public function setUser(?User $User): static
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    public function getHair(): ?string
+    {
+        return $this->Hair;
+    }
+
+    public function setHair(?string $Hair): static
+    {
+        $this->Hair = $Hair;
+
+        return $this;
+    }
+
+    public function getEyes(): ?string
+    {
+        return $this->Eyes;
+    }
+
+    public function setEyes(?string $Eyes): static
+    {
+        $this->Eyes = $Eyes;
+
+        return $this;
+    }
+
+    public function getEducation(): ?string
+    {
+        return $this->Education;
+    }
+
+    public function setEducation(?string $Education): static
+    {
+        $this->Education = $Education;
+
+        return $this;
+    }
+
+    public function getChildren(): ?string
+    {
+        return $this->Children;
+    }
+
+    public function setChildren(?string $Children): static
+    {
+        $this->Children = $Children;
 
         return $this;
     }
