@@ -25,6 +25,8 @@ class UserFixtures extends Fixture
         $adminUser->setEmail('admin@admin.admin');
         $adminUser->setRoles(['ROLE_ADMIN']);
         $adminUser->setPassword($this->userPasswordHasher->hashPassword($adminUser, 'admin'));
+        $adminUser->setCreatedAt(new \DateTimeImmutable());
+        $adminUser->setUpdatedAt(new \DateTimeImmutable());
         $adminUser->setIsVerified(true);
 
             $adminProfile = new Profile();
