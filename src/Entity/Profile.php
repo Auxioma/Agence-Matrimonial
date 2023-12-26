@@ -68,6 +68,9 @@ class Profile
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Children = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Sex = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -285,6 +288,18 @@ class Profile
     public function setChildren(?string $Children): static
     {
         $this->Children = $Children;
+
+        return $this;
+    }
+
+    public function getSex(): ?string
+    {
+        return $this->Sex;
+    }
+
+    public function setSex(?string $Sex): static
+    {
+        $this->Sex = $Sex;
 
         return $this;
     }

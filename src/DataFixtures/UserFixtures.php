@@ -41,6 +41,7 @@ class UserFixtures extends Fixture
             $adminProfile->setFamilyStatus($faker->randomElement(['Célibataire', 'Marié(e)', 'Divorcé(e)', 'Veuf(ve)']));
             $adminProfile->setAboutMe('Admin');
             $adminProfile->setLookFor('Admin');
+            $adminProfile->setSex($faker->randomElement(['Homme', 'Femme']));
         
             $manager->persist($adminProfile);
         $manager->persist($adminUser);
@@ -66,6 +67,7 @@ class UserFixtures extends Fixture
                 $userProfile->setFamilyStatus($faker->randomElement(['Célibataire', 'Marié(e)', 'Divorcé(e)', 'Veuf(ve)']));
                 $userProfile->setAboutMe($faker->text(200));
                 $userProfile->setLookFor($faker->text(200));
+                $userProfile->setSex('Homme');
                 // boucle pour créer 5 images de garcons
                 $Images = [];
                 for ($j = 0; $j < rand(1,5); $j++) {
@@ -101,13 +103,18 @@ class UserFixtures extends Fixture
                 // boucle pour créer 5 images de filles
                 $Images = [];
                 for ($j = 0; $j < rand(1,5); $j++) {
-                    $Images[] = $faker->imageUrl(640, 480, 'people');
+                    $ImageTelecharger = $faker->imageUrl(250, 250, 'people');
+                    $file = file_get_contents($ImageTelecharger);
+                    // telechargement de l'image dans le dossier public de symfony
+                    file_put_contents('public/assets/images/member/'.$i.'-'.$j.'.jpg', $file);
+                    $Images[] = $i.'-'.$j.'.jpg';
                 }
                 $userProfile->setBoyPicture($Images);
                 $userProfile->setHair($faker->randomElement(['Blond', 'Brun', 'Roux', 'Chatain', 'Noir', 'Blanc', 'Gris', 'Autre']));
                 $userProfile->setEyes($faker->randomElement(['Bleu', 'Marron', 'Vert', 'Gris', 'Noir', 'Autre']));
                 $userProfile->setEducation($faker->randomElement(['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Bac +8', 'Autre']));
                 $userProfile->setChildren($faker->randomElement(['Oui', 'Non']));
+                $userProfile->setSex('Femme');
                 $manager->persist($userProfile);
             
             $manager->persist($user);

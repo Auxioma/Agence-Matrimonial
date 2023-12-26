@@ -2,15 +2,26 @@
 
 namespace App\Controller\Pages;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ProfileRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProfilesController extends AbstractController
 {
     #[Route('/adherante', name: 'app_profiles_list')]
-    public function ViewListProfile(): Response
+    public function ViewListProfile(ProfileRepository $profile, PaginatorInterface $paginator, Request $request): Response
     {
-        return $this->render('pages/list-profiles.html.twig'); 
+        $pagination = $paginator->paginate(
+            $profile->AdheranteListingQuery(), /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            20 /*limit per page*/
+        );
+
+        return $this->render('pages/list-profiles.html.twig', [
+            'profiles' => $pagination
+        ]); 
     }
 }
