@@ -22,16 +22,6 @@ class ProfileCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            // fait un row > col-6
-            TextField::new('FirstName', 'prénom')->setColumns(6),
-            TextField::new('LastName', 'nom')->setColumns(6),
-            TextField::new('Country', 'pays')->setColumns(4),
-            TextField::new('City', 'ville')->setColumns(4),
-            DateField::new('Birthday', 'date de naissance')->setColumns(4),
-            TextField::new('PhoneNumber', 'numéro de téléphone')->setColumns(4),
-            TextField::new('Job', 'emploi')->setColumns(4),
-            TextField::new('Size', 'taille')->setColumns(4),
-
         ];
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Education;
+use App\Entity\Eyes;
+use App\Entity\Familly;
+use App\Entity\Hair;
 use App\Entity\Profile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -44,5 +48,13 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Profile', 'fas fa-user', Profile::class);
+
+        // Create submenus Configuration with items
+        yield MenuItem::subMenu('Configuration', 'fas fa-cog')->setSubItems([
+            MenuItem::linkToCrud('Status familliale', 'fas fa-user', Familly::class),
+            MenuItem::linkToCrud('Education scolaire', 'fas fa-user', Education::class),
+            MenuItem::linkToCrud('Cheveux', 'fas fa-user', Hair::class),
+            MenuItem::linkToCrud('Yeux', 'fas fa-user', Eyes::class),
+        ]);
     }
 }

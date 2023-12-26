@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\ProfileRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProfileRepository::class)]
+#[ORM\Table(name: 'profile')]
+#[ORM\HasLifecycleCallbacks]
 class Profile
 {
     public function __toString()
@@ -46,35 +50,43 @@ class Profile
     #[ORM\Column(length: 3)]
     private ?string $Weight = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $FamilyStatus = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $AboutMe = null;
 
     #[ORM\Column(length: 255)]
     private ?string $LookFor = null;
 
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
-    private ?array $BoyPicture = null;
-
     #[ORM\OneToOne(inversedBy: 'profile', cascade: ['persist', 'remove'])]
     private ?User $User = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Hair = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Eyes = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Education = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Children = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
     private ?string $Sex = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Lang = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Familly $Familly = null;
+
+    #[ORM\OneToMany(mappedBy: 'profile', targetEntity: Children::class)]
+    private Collection $Children;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Education $Education = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Hair $Hair = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Eyes $Eyes = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $Pictures = null;
+
+    public function __construct()
+    {
+        $this->Children = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -189,18 +201,6 @@ class Profile
         return $this;
     }
 
-    public function getFamilyStatus(): ?string
-    {
-        return $this->FamilyStatus;
-    }
-
-    public function setFamilyStatus(string $FamilyStatus): static
-    {
-        $this->FamilyStatus = $FamilyStatus;
-
-        return $this;
-    }
-
     public function getAboutMe(): ?string
     {
         return $this->AboutMe;
@@ -225,18 +225,6 @@ class Profile
         return $this;
     }
 
-    public function getBoyPicture(): ?array
-    {
-        return $this->BoyPicture;
-    }
-
-    public function setBoyPicture(?array $BoyPicture): static
-    {
-        $this->BoyPicture = $BoyPicture;
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->User;
@@ -249,54 +237,6 @@ class Profile
         return $this;
     }
 
-    public function getHair(): ?string
-    {
-        return $this->Hair;
-    }
-
-    public function setHair(?string $Hair): static
-    {
-        $this->Hair = $Hair;
-
-        return $this;
-    }
-
-    public function getEyes(): ?string
-    {
-        return $this->Eyes;
-    }
-
-    public function setEyes(?string $Eyes): static
-    {
-        $this->Eyes = $Eyes;
-
-        return $this;
-    }
-
-    public function getEducation(): ?string
-    {
-        return $this->Education;
-    }
-
-    public function setEducation(?string $Education): static
-    {
-        $this->Education = $Education;
-
-        return $this;
-    }
-
-    public function getChildren(): ?string
-    {
-        return $this->Children;
-    }
-
-    public function setChildren(?string $Children): static
-    {
-        $this->Children = $Children;
-
-        return $this;
-    }
-
     public function getSex(): ?string
     {
         return $this->Sex;
@@ -305,6 +245,108 @@ class Profile
     public function setSex(?string $Sex): static
     {
         $this->Sex = $Sex;
+
+        return $this;
+    }
+
+    public function getLang(): ?string
+    {
+        return $this->Lang;
+    }
+
+    public function setLang(string $Lang): static
+    {
+        $this->Lang = $Lang;
+
+        return $this;
+    }
+
+    public function getFamilly(): ?Familly
+    {
+        return $this->Familly;
+    }
+
+    public function setFamilly(?Familly $Familly): static
+    {
+        $this->Familly = $Familly;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Children>
+     */
+    public function getChildren(): Collection
+    {
+        return $this->Children;
+    }
+
+    public function addChild(Children $child): static
+    {
+        if (!$this->Children->contains($child)) {
+            $this->Children->add($child);
+            $child->setProfile($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChild(Children $child): static
+    {
+        if ($this->Children->removeElement($child)) {
+            // set the owning side to null (unless already changed)
+            if ($child->getProfile() === $this) {
+                $child->setProfile(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getEducation(): ?Education
+    {
+        return $this->Education;
+    }
+
+    public function setEducation(?Education $Education): static
+    {
+        $this->Education = $Education;
+
+        return $this;
+    }
+
+    public function getHair(): ?Hair
+    {
+        return $this->Hair;
+    }
+
+    public function setHair(?Hair $Hair): static
+    {
+        $this->Hair = $Hair;
+
+        return $this;
+    }
+
+    public function getEyes(): ?Eyes
+    {
+        return $this->Eyes;
+    }
+
+    public function setEyes(?Eyes $Eyes): static
+    {
+        $this->Eyes = $Eyes;
+
+        return $this;
+    }
+
+    public function getPictures(): ?array
+    {
+        return $this->Pictures;
+    }
+
+    public function setPictures(?array $Pictures): static
+    {
+        $this->Pictures = $Pictures;
 
         return $this;
     }
