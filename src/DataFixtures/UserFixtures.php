@@ -52,6 +52,8 @@ class UserFixtures extends Fixture
             $user->setEmail($faker->email);
             $user->setRoles($faker->randomElements(new \ArrayIterator(['ROLE_BOY'])));
             $user->setPassword($this->userPasswordHasher->hashPassword($adminUser, '0000'));
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setUpdatedAt(new \DateTimeImmutable());
             $user->setIsVerified(true);
                 $userProfile = new Profile();
                 $userProfile->setUser($user);
@@ -85,6 +87,8 @@ class UserFixtures extends Fixture
             $user->setEmail($faker->email);
             $user->setRoles($faker->randomElements(new \ArrayIterator(['ROLE_GIRL'])));
             $user->setPassword($this->userPasswordHasher->hashPassword($adminUser, '0000'));
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setUpdatedAt(new \DateTimeImmutable());
             $user->setIsVerified(true);
                 $userProfile = new Profile();
                 $userProfile->setUser($user);
