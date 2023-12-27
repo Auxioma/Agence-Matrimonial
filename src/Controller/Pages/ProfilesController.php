@@ -2,6 +2,7 @@
 
 namespace App\Controller\Pages;
 
+use App\Entity\Profile;
 use App\Repository\ProfileRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,5 +24,13 @@ class ProfilesController extends AbstractController
         return $this->render('pages/list-profiles.html.twig', [
             'profiles' => $pagination
         ]); 
+    }
+
+    #[Route('/adherante/{Slug}', name: 'app_profiles_show', methods: ['GET'])]
+    public function ViewProfile(Profile $profile): Response
+    {
+        return $this->render('pages/show-profile.html.twig', [
+            'profile' => $profile
+        ]);
     }
 }

@@ -2,17 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\ProfileRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Trait\TimestampTrait;
+use App\Repository\ProfileRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: ProfileRepository::class)]
 #[ORM\Table(name: 'profile')]
 #[ORM\HasLifecycleCallbacks]
 class Profile
 {
+
+    use TimestampTrait;
+
     public function __toString()
     {
         return $this->getFirstName() . ' ' . $this->getLastName();
@@ -56,32 +60,38 @@ class Profile
     #[ORM\Column(length: 255)]
     private ?string $LookFor = null;
 
-    #[ORM\OneToOne(inversedBy: 'profile', cascade: ['persist', 'remove'])]
-    private ?User $User = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Sex = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Lang = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\Column(nullable: true)]
+    private ?array $Pictures = null;
+
+    #[ORM\ManyToOne(inversedBy: 'profiles')]
+    private ?User $User = null;
+
+    #[ORM\ManyToOne(inversedBy: 'profiles')]
     private ?Familly $Familly = null;
 
     #[ORM\OneToMany(mappedBy: 'profile', targetEntity: Children::class)]
     private Collection $Children;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Education $Education = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Hair $Hair = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'profiles')]
     private ?Eyes $Eyes = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?array $Pictures = null;
+    #[ORM\ManyToOne(inversedBy: 'profiles')]
+    private ?Hair $Hair = null;
+
+    #[ORM\ManyToOne(inversedBy: 'profiles')]
+    private ?Education $Education = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Reference = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Slug = null;
 
     public function __construct()
     {
@@ -225,18 +235,6 @@ class Profile
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->User;
-    }
-
-    public function setUser(?User $User): static
-    {
-        $this->User = $User;
-
-        return $this;
-    }
-
     public function getSex(): ?string
     {
         return $this->Sex;
@@ -257,6 +255,30 @@ class Profile
     public function setLang(string $Lang): static
     {
         $this->Lang = $Lang;
+
+        return $this;
+    }
+
+    public function getPictures(): ?array
+    {
+        return $this->Pictures;
+    }
+
+    public function setPictures(?array $Pictures): static
+    {
+        $this->Pictures = $Pictures;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): static
+    {
+        $this->User = $User;
 
         return $this;
     }
@@ -303,14 +325,14 @@ class Profile
         return $this;
     }
 
-    public function getEducation(): ?Education
+    public function getEyes(): ?Eyes
     {
-        return $this->Education;
+        return $this->Eyes;
     }
 
-    public function setEducation(?Education $Education): static
+    public function setEyes(?Eyes $Eyes): static
     {
-        $this->Education = $Education;
+        $this->Eyes = $Eyes;
 
         return $this;
     }
@@ -327,26 +349,38 @@ class Profile
         return $this;
     }
 
-    public function getEyes(): ?Eyes
+    public function getEducation(): ?Education
     {
-        return $this->Eyes;
+        return $this->Education;
     }
 
-    public function setEyes(?Eyes $Eyes): static
+    public function setEducation(?Education $Education): static
     {
-        $this->Eyes = $Eyes;
+        $this->Education = $Education;
 
         return $this;
     }
 
-    public function getPictures(): ?array
+    public function getReference(): ?string
     {
-        return $this->Pictures;
+        return $this->Reference;
     }
 
-    public function setPictures(?array $Pictures): static
+    public function setReference(string $Reference): static
     {
-        $this->Pictures = $Pictures;
+        $this->Reference = $Reference;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->Slug;
+    }
+
+    public function setSlug(string $Slug): static
+    {
+        $this->Slug = $Slug;
 
         return $this;
     }

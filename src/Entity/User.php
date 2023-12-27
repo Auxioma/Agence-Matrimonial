@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Entity\Trait\TimestampTrait;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -11,6 +13,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[ORM\HasLifecycleCallbacks]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
 
@@ -36,8 +39,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    #[ORM\OneToOne(mappedBy: 'User', cascade: ['persist', 'remove'])]
-    private ?Profile $profile = null;
+    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Profile::class)]
+    private Collection $profiles;
+
+    public function __construct()
+    {
+        $this->profiles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,24 +129,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getProfile(): ?Profile
+    /**
+     * @return Collection<int, Profile>
+     */
+    public function getProfiles(): Collection
     {
-        return $this->profile;
+        return $this->profiles;
     }
 
-    public function setProfile(?Profile $profile): static
+    public function addProfile(Profile $profile): static
     {
-        // unset the owning side of the relation if necessary
-        if ($profile === null && $this->profile !== null) {
-            $this->profile->setUser(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($profile !== null && $profile->getUser() !== $this) {
+        if (!$this->profiles->contains($profile)) {
+            $this->profiles->add($profile);
             $profile->setUser($this);
         }
 
-        $this->profile = $profile;
+        return $this;
+    }
+
+    public function removeProfile(Profile $profile): static
+    {
+        if ($this->profiles->removeElement($profile)) {
+            // set the owning side to null (unless already changed)
+            if ($profile->getUser() === $this) {
+                $profile->setUser(null);
+            }
+        }
 
         return $this;
     }

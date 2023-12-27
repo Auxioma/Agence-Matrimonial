@@ -28,7 +28,7 @@ class ProfileRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.Sex = :val')
-            ->setParameter('val', 'Femme')
+            ->setParameter('val', 'F')
             ->getQuery()
             ->getResult()
         ;

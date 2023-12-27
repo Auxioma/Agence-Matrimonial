@@ -13,7 +13,7 @@ class HomePageController extends AbstractController
     public function index(ProfileRepository $profile): Response
     {
         return $this->render('layout/layout-content-home.html.twig', [
-            'profiles' => $profile->findBy(['Sex' => 'Femme'], [], 10)
+            'profiles' => $profile->findBy(['Sex' => 'F'], [], 10)
         ]);
     }
 }

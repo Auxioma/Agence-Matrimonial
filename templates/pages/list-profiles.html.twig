@@ -406,10 +406,10 @@
                         <div class="lab-item member-item style-1">
                             <div class="lab-inner">
                                 <div class="lab-thumb">
-                                    <img src="{{ asset('assets/images/member/' ~ profile.BoyPicture|first) }}" alt="member-img">
+                                    <img src="{{ asset('assets/images/member/' ~ profile.Pictures|first) }}" alt="member-img">
                                 </div>
                                 <div class="lab-content">
-                                    <h6><a href="profile.html">{{ profile.FirstName }} <i class="icofont-check" title="Verify Profile"></i></a> </h6>
+                                    <h6><a href="{{ path('app_profiles_show', {'Slug': profile.Slug }) }}">{{ profile.FirstName }} <i class="icofont-check" title="Verify Profile"></i></a> </h6>
                                     <p>{{ profile.City }}</p>
                                 </div>
                             </div>

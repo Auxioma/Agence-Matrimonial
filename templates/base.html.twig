@@ -18,6 +18,10 @@
     <body>
 
         {{render(controller('App\\Controller\\Menu\\MenuController::mainMenu'))}}
+
+        {% include "_partials/_popuplogin.html.twig" %}
+        {% include "_partials/_popupregister.html.twig" %}
+
         
         {% block body %}{% endblock %}
 
