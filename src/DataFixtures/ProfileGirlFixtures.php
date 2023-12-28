@@ -30,7 +30,7 @@ class ProfileGirlFixtures extends Fixture implements DependentFixtureInterface
             $profileGirl->setWeight($faker->numberBetween(40, 80));
             $profileGirl->setLang('Fr');
             $profileGirl->setAboutMe($faker->text(500));
-            $profileGirl->setLookFor($faker->text(300));
+            $profileGirl->setLookFor($faker->text(100));
             $profileGirl->setSex('F');
             $profileGirl->setFamilly($this->getReference('MaritalStatus_' . $faker->numberBetween(0, 3)));
             $profileGirl->setEyes($this->getReference('eyes_' . $faker->numberBetween(0, 5)));

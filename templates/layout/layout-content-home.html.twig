@@ -198,74 +198,33 @@
     <section class="story-section padding-tb bgimg" style="background-image: url(assets/images/bg-img/04.jpg);">
         <div class=" container">
             <div class="section-header">
-                <h2>Read Our Success Stories</h2>
-                <p>Listen and learn from our community members and find out tips and tricks to meet your love. Join us and be part of a bigger family.</p>
+                <h2>{% trans %}Lire nos témoignages de réussite{% endtrans %}</h2>
+                <p>{% trans %}Découvrez l'inspiration et la motivation en parcourant nos témoignages de réussite.{% endtrans %}</p>
             </div>
             <div class="section-wrapper">
                 <div class="row justify-content-center g-4 row-cols-xl-3 row-cols-sm-2 row-cols-1">
+
+                    {% for story in success %}
                     <div class="col">
                         <div class="story-item lab-item">
                             <div class="lab-inner">
                                 <div class="lab-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/story/01.jpg" alt="img"></a>
+                                    <a href="blog-single.html"><img src="{{ asset('assets/images/story/' ~ story.Pictures ) }}" alt="img"></a>
                                 </div>
                                 <div class="lab-content">
-                                    <a href="blog-single.html"><h4>Dream places and locations to visit in 2022</h4></a>
+                                    <a href="blog-single.html"><h4>{{ story.Title }}</h4></a>
                                     <div class="lab-content-author">
-                                        <div class="left">
-                                            <img src="assets/images/story/author/01.png" alt="blog-thumb">
-                                        </div>
+
                                         <div class="right">
-                                            <a href="#">Umme Nishat</a>
-                                            <span>April 08, 2022</span>
+                                            <a href="#">{{ story.FirstName }}</a>
+                                            <span>{{ story.CreatedAt|date('d - m - Y') }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="story-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/story/02.jpg" alt="img"></a>
-                                </div>
-                                <div class="lab-content">
-                                    <a href="blog-single.html"><h4>Make your dreams come true and monetise quickly</h4></a>
-                                    <div class="lab-content-author">
-                                        <div class="left">
-                                            <img src="assets/images/story/author/02.png" alt="blog-thumb">
-                                        </div>
-                                        <div class="right">
-                                            <a href="#">Rajib Raj</a>
-                                            <span>April 08, 2022</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="story-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/story/03.jpg" alt="img"></a>
-                                </div>
-                                <div class="lab-content">
-                                    <a href="blog-single.html"><h4>Love looks not with the eyes, but with the mind.</h4></a>
-                                    <div class="lab-content-author">
-                                        <div class="left">
-                                            <img src="assets/images/story/author/03.png" alt="blog-thumb">
-                                        </div>
-                                        <div class="right">
-                                            <a href="#">Radika Roy</a>
-                                            <span>April 08, 2022</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
