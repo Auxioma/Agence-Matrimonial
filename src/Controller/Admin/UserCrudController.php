@@ -46,7 +46,6 @@ class UserCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('Email', 'Email'),
             DateField::new('CreatedAt', 'Date de création')->onlyOnIndex(),
-            AssociationField::new('profile', 'Profil')->onlyOnIndex()->setCrudController(ProfileCrudController::class),
             BooleanField::new('IsVerified', 'Vérifié'),
         ];
     }

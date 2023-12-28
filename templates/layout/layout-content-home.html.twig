@@ -209,14 +209,13 @@
                         <div class="story-item lab-item">
                             <div class="lab-inner">
                                 <div class="lab-thumb">
-                                    <a href="blog-single.html"><img src="{{ asset('assets/images/story/' ~ story.Pictures ) }}" alt="img"></a>
+                                    <a href="{{ path('app_success_stories', {'Slug': story.SLug}) }}"><img src="{{ asset('assets/images/story/' ~ story.Pictures ) }}" alt="img"></a>
                                 </div>
                                 <div class="lab-content">
-                                    <a href="blog-single.html"><h4>{{ story.Title }}</h4></a>
+                                    <a href="{{ path('app_success_stories', {'Slug': story.SLug}) }}"><h4>{{ story.Title }}</h4></a>
                                     <div class="lab-content-author">
-
                                         <div class="right">
-                                            <a href="#">{{ story.FirstName }}</a>
+                                            <a href="{{ path('app_success_stories', {'Slug': story.SLug}) }}">{{ story.FirstName }}</a>
                                             <span>{{ story.CreatedAt|date('d - m - Y') }}</span>
                                         </div>
                                     </div>

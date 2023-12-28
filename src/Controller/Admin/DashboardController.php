@@ -7,6 +7,7 @@ use App\Entity\Eyes;
 use App\Entity\Familly;
 use App\Entity\Hair;
 use App\Entity\Profile;
+use App\Entity\SuccessStories;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -55,6 +56,11 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Education scolaire', 'fas fa-user', Education::class),
             MenuItem::linkToCrud('Cheveux', 'fas fa-user', Hair::class),
             MenuItem::linkToCrud('Yeux', 'fas fa-user', Eyes::class),
+        ]);
+
+        // Create submenus Pages with items
+        yield MenuItem::subMenu('CMS', 'fas fa-file')->setSubItems([
+            MenuItem::linkToCrud('Témoignages ', 'fas fa-user', SuccessStories::class),
         ]);
     }
 }

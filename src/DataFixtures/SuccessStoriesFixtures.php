@@ -20,6 +20,7 @@ class SuccessStoriesFixtures extends Fixture
             $successStories->setFirstName($facker->firstName($gender = null));
             $successStories->setPictures('01.jpg');
             $successStories->setDescription($facker->text($maxNbChars = 500));
+            $successStories->setSlug($facker->slug);
             $manager->persist($successStories);
         }
 
