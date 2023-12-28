@@ -45,7 +45,7 @@ class SuccessStoriesCrudController extends AbstractCrudController
                 ->setBasePath('/assets/images/story/')
                 ->setUploadDir('/public/assets/images/story/')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setRequired(true),
+                ->setRequired(false),
             DateField::new('CreatedAt', 'Date de création')->onlyOnIndex(),
             DateField::new('UpdatedAt', 'Date de mise à jour')->onlyOnIndex(),
         ];
