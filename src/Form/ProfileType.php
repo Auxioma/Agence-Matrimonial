@@ -6,6 +6,8 @@ use App\Entity\User;
 use App\Entity\Profile;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,9 +17,10 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ProfileType extends AbstractType
 {
@@ -83,8 +86,13 @@ class ProfileType extends AbstractType
                     'placeholder' => $this->translator->trans('Veillez choisir votre ville'),
                 ]
             ])
+            // le Birthday dois avoir au moins 18 ans
             ->add('Birthday', DateType::class, [
                 'widget' => 'single_text',
+                'constraints' => [
+                    new Assert\Date(),
+                    new Assert\LessThan('-18 years'),  // -18 years
+              ]
             ])
             ->add('PhoneNumber', TelType::class, [
                 'label' => $this->translator->trans('Veillez entrer votre numéro de téléphone'),
@@ -104,14 +112,9 @@ class ProfileType extends AbstractType
             ->add('Weight', ChoiceType::class, [
                 'choices' => $this->generateWeightChoices(),
             ])
-            ->add('FamilyStatus', ChoiceType::class, [
-                'choices' => [
-                    'Single' => 'Single',
-                    'Married' => 'Married',
-                    'Divorced' => 'Divorced',
-                    'Widowed' => 'Widowed'
-                ],
-                'label' => 'État de la famille'
+            ->add('Familly', EntityType::class, [
+                'class' => 'App\Entity\Familly',
+                'choice_label' => 'Name',
             ])
             ->add('AboutMe', TextareaType::class, [
                 'label' => 'About Me', 
@@ -128,10 +131,34 @@ class ProfileType extends AbstractType
                 ]
             ])
             ->add('submit', SubmitType::class, [
+                'label' => 'Valider',
                 'attr' => [
                     'placeholder' => $this->translator->trans('Valider'),
-                ]
+                    'class' => 'btn btn-rose',
+                ] 
             ])
+            ->add('files', FileType::class, [
+                'label' => 'Drop files here or click to upload.',
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false,
+                'help' => 'Allowed file types: jpg, jpeg',
+                'help_attr' => [
+                    'class' => 'text-muted',
+                ],
+                'attr' => [
+                    'is' => 'drop-files',
+                ],
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid JPG document',
+                    ])
+                ],
+            ] )
         ;
     }
 
@@ -165,6 +192,9 @@ class ProfileType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Profile::class,
+            'constraints' => [
+                new Assert\Valid(),
+            ],
         ]);
     }
 }

@@ -48,10 +48,10 @@ class Profile
     #[ORM\Column(length: 255)]
     private ?string $Job = null;
 
-    #[ORM\Column(length: 3)]
+    #[ORM\Column(length: 5)]
     private ?string $Size = null;
 
-    #[ORM\Column(length: 3)]
+    #[ORM\Column(length: 5)]
     private ?string $Weight = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -64,7 +64,7 @@ class Profile
     private ?string $Sex = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Lang = null;
+    private ?string $Lang = 'Fr';
 
     #[ORM\Column(nullable: true)]
     private ?array $Pictures = null;
@@ -87,10 +87,10 @@ class Profile
     #[ORM\ManyToOne(inversedBy: 'profiles')]
     private ?Education $Education = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $Reference = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $Slug = null;
 
     public function __construct()
