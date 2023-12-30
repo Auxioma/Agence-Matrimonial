@@ -1,7 +1,7 @@
 {% block popupregister %}
     <div class="popuplogin">
         <div class="container">
-            <div class="popup__area bgimg" style="background-image: url(assets/images/bg3.jpg);">
+            <div class="popup__area bgimg" style="background-image: url(/assets/images/bg3.jpg);">
                 <div class="popup__close">
                     <i class="icofont-close"></i>
                 </div>
@@ -9,11 +9,12 @@
                     <div class="col-xl-6">
                         <div class="popup__fild">
                             <h2 class="mb-4">Members Login</h2>
-                            <form class="banner-form">
+                            <form class="banner-form" method="POST" action="{{ path('app_login') }}">
                                 <div class="age">
                                     <div class="right w-100">
-                                        <input type="email" placeholder="Enter yor email">
-                                        <input type="password" placeholder="******">
+                                        <input type="email" name="email" id="inputEmail" autocomplete="email" required autofocus>
+                                        <input type="password" name="password" id="inputPassword" autocomplete="current-password" required>
+                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                                         <p class="text-end mb-0"><a href="forgetpassword.html" class="theme-color">forget password</a></p>
                                     </div>
                                     <div class="form-check">
@@ -30,7 +31,7 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="popup__thumb">
-                            <img src="assets/images/popup/02.png" alt="popup">
+                            <img src="/assets/images/popup/02.png" alt="popup">
                         </div>
                     </div>
                 </div>

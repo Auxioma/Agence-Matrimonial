@@ -35,64 +35,54 @@
                                                             <div class="create-post mb-20">
                                                                 <div class="lab-inner">
                                                                     <div class="lab-thumb">
-                                                                        {{ form_start(form) }}   
+                                                                           
                                                                             <div class="container">
                                                                                 <div class="row">
-                                                                                    <div class="col-12 my-3">
-                                                                                        <p> Toutes les informations de votre profil sont strictement confidentielles et ne sont jamais transmises à des tiers. 
-                                                                                            Vos informations personnelles sont utilisées UNIQUEMENT pour le contact direct avec vos correspondantes ou notre équipe
-                                                                                            En remplissant tous les champs de votre profil, vous augmentez le taux de réponses positives et recevrez en prime 7 crédits supplémentaires.
-                                                                                        </p>
+                                                                                    <div class="col-6 my-3">
+                                                                                        
+                                                                                        <input type="text" value="{{ form.FirstName }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.FirstName) }}
+                                                                                        <input type="text" value="{{ form.LastName }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.LastName) }}
+                                                                                        <input type="text" value="{{ form.Country }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.Country) }}
+                                                                                        <input type="text" value="{{ form.City }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.City) }}
+                                                                                        <input type="text" value="{{ form.Birthday|date('d-m-Y') }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.Birthday) }}
+                                                                                        <input type="text" value="{{ form.PhoneNumber }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.PhoneNumber) }}
+                                                                                        <input type="text" value="{{ form.Job }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.Job) }}
+                                                                                        <input type="text" value="{{ form.Size }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.Size) }}
+                                                                                        <input type="text" value="{{ form.Weight }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.Weight) }}
-                                                                                    </div>
-                                                                                    <div class="col-6 my-3">
-                                                                                        {{ form_widget(form.Familly) }}
+                                                                                        <input type="text" value="{{ form.Familly.Name }}" readonly>
                                                                                     </div>
                                                                                     <div class="col-12 my-3">
-                                                                                        {{ form_widget(form.AboutMe) }}
+                                                                                        <textarea>{{ form.AboutMe }}</textarea>
+                                                                                        <te
                                                                                     </div>
                                                                                     <div class="col-12 my-3">
-                                                                                        {{ form_widget(form.LookFor) }}
+                                                                                        <textarea>{{ form.LookFor }}</textarea>
                                                                                     </div>
-                                                                                    <div class="col-12 my-3">
-                                                                                        {{ form_widget(form.files) }}
-                                                                                    </div>
-                                                                                    <div class="col-8 offset-2 my-3">
-                                                                                        En sauvegardant mon profil j’atteste que je ne suis pas marié ou en couple et que je cherche une femme pour relations durables
-                                                                                    </div>
-                                                                                    <div class="col-12 my-3">
-                                                                                        {{ form_widget(form.submit) }}
+                                                                                    <div class="col my-3">
+                                                                                        {% for image in form.pictures %}
+                                                                                            <img width="200" src="{{ asset('assets/images/member/' ~ image) }}" alt="image">
+                                                                                        {% endfor %}
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            
-                                                                        {{ form_end(form) }}
+                                                                            </div>                                                                       
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -103,26 +93,7 @@
                                         </div>
                                         <div class="col-xl-4">
                                             <aside class="mt-5 mt-xl-0">
-                                                <div class="widget search-widget">
-                                                    <div class="widget-inner">
-                                                        <div class="widget-title">
-                                                            <h5>{% trans %}Navigation{% endtrans %}</h5>
-                                                        </div>
-                                                        <div>
-                                                            <ul class="widget-title">
-                                                                <li><a href="#">{% trans %}Message{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Mes femme favorite{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Mon profile{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Rencontre{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Cadeaux{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Lire les FAQ{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Achat de crédit{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Soirée de rencontres{% endtrans %}</a></li>
-                                                                <li><a href="#">{% trans %}Crédit dispobible{% endtrans %}</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                {% include 'customer/_partials/_menu.html.twig' %}
                                                 <div class="widget like-member">
                                                     <div class="widget-inner">
                                                         <div class="widget-title">

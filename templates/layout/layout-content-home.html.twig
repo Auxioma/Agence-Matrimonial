@@ -209,7 +209,7 @@
                         <div class="story-item lab-item">
                             <div class="lab-inner">
                                 <div class="lab-thumb">
-                                    <a href="{{ path('app_success_stories', {'Slug': story.SLug}) }}"><img src="{{ asset('assets/images/story/' ~ story.Pictures ) }}" alt="img"></a>
+                                    <a href="{{ path('app_success_stories', {'Slug': story.SLug}) }}"><img src="{{ asset('assets/images/story/' ~ story.Pictures ) }}" alt="{{ story.Title }}"></a>
                                 </div>
                                 <div class="lab-content">
                                     <a href="{{ path('app_success_stories', {'Slug': story.SLug}) }}"><h4>{{ story.Title }}</h4></a>
@@ -292,130 +292,27 @@
             </div>
             <div class="section-wrapper">
                 <div class="row g-4 row-cols-sm-2 row-cols-1">
+
+                    {% for article in articles %}
+
                     <div class="col">
                         <div class="group-item lab-item">
                             <div class="lab-inner">
                                 <div class="lab-thumb">
-                                    <a href="group-single.html"><img src="assets/images/group/01.jpg" alt="img"></a>
+                                    <a href="group-single.html"><img src="{{ asset('assets/images/group/' ~ article.Picture) }}" alt="img"></a>
                                 </div>
                                 <div class="lab-content">
-                                    <a href="group-single.html"><h4>A Dating Story</h4></a>
-                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
-                                    <ul class="lab-content-icon">
-                                        <li>
-                                            <i class="icofont-globe"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <span class="tooltip-label">Public</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <i class="icofont-users-alt-3"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                    <a href="group-single.html"><h4>{{ article.Title }}</h4></a>
+                                    <p>{{ article.Category.Name }}</p>
+                                    <p>Creer le : {{ article.CreatedAt|date('d-m-Y') }}</p>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="group-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <a href="group-single.html"><img src="assets/images/group/02.jpg" alt="img"></a>
-                                </div>
-                                <div class="lab-content">
-                                    <a href="group-single.html"><h4>A Single Rose</h4></a>
-                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
-                                    <ul class="lab-content-icon">
-                                        <li>
-                                            <i class="icofont-globe"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <span class="tooltip-label">Public</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <i class="icofont-users-alt-3"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="group-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <a href="group-single.html"><img src="assets/images/group/03.jpg" alt="img"></a>
-                                </div>
-                                <div class="lab-content">
-                                    <a href="group-single.html"><h4>Beautiful Distraction</h4></a>
-                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
-                                    <ul class="lab-content-icon">
-                                        <li>
-                                            <i class="icofont-globe"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <span class="tooltip-label">Public</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <i class="icofont-users-alt-3"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="group-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <a href="group-single.html"><img src="assets/images/group/04.jpg" alt="img"></a>
-                                </div>
-                                <div class="lab-content">
-                                    <a href="group-single.html"><h4>Because You Love Me</h4></a>
-                                    <p>Who doesn't love cupcakes? if you also love them, then this...</p>
-                                    <ul class="lab-content-icon">
-                                        <li>
-                                            <i class="icofont-globe"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <span class="tooltip-label">Public</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <i class="icofont-users-alt-3"></i>
-                                            <div class="time-tooltip">
-                                                <div class="time-tooltip-holder">
-                                                    <a href="group-single.html" class="tooltip-label">12+ Members</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    {% endfor %}
+
                 </div>
                 <div class="d-flex flex-wrap justify-content-center mt-5">
                     <a href="active-group.html" class="lab-btn"><span>Discover All Groups</span></a>

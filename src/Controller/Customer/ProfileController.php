@@ -19,6 +19,12 @@ class ProfileController extends AbstractController
     #[Route('/customer/profile/new', name: 'customer_profile_new')]
     public function index(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
     {
+        
+        // Nous allons verifier que le profil n'existe pas déjà
+        if ( $this->getUser()->getProfiles()->toArray() ) {
+            return $this->redirectToRoute('customer_profile');
+        }
+        
         $profile = new Profile();
         $form = $this->createForm(ProfileType::class, $profile);
         $form->handleRequest($request);
@@ -58,6 +64,11 @@ class ProfileController extends AbstractController
             $entityManager->persist($profile);
             $entityManager->flush();
 
+            // flash message
+            $this->addFlash('success', 'Votre profil a bien été créé');
+
+            return $this->redirectToRoute('customer_profile');
+
         }
         
         return $this->render('customer/profile-new.html.twig', [
@@ -68,17 +79,8 @@ class ProfileController extends AbstractController
     #[Route('/customer/profile', name: 'customer_profile')]
     public function Update(Request $request, EntityManagerInterface $entityManager): Response
     {
-
-        $OneProfile = $entityManager->getRepository(Profile::class)->find($this->getUser()->getProfiles()->toArray()[0]);
-
-        $profile = new Profile();
-        $form = $this->createForm(ProfileType::class, $profile, [
-            'data' => $OneProfile
-        ]);
-        $form->handleRequest($request);
-
         return $this->render('customer/profile-update.html.twig', [
-            'form' => $form->createView(),
+            'form' => $entityManager->getRepository(Profile::class)->find($this->getUser()->getProfiles()->toArray()[0]),
         ]);
     }
 }

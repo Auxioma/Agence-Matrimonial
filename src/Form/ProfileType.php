@@ -137,7 +137,7 @@ class ProfileType extends AbstractType
                     'class' => 'btn btn-rose',
                 ] 
             ])
-            ->add('files', FileType::class, [
+            ->add('Pictures', FileType::class, [
                 'label' => 'Drop files here or click to upload.',
                 'multiple' => true,
                 'mapped' => false,
